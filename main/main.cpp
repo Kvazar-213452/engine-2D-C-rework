@@ -3,7 +3,7 @@
 #include <chrono>
 #include <atomic>
 #include "lib/webview.h"
-#include "src/include/httplib.h"
+#include "lib/httplib.h"
 #include "src/include/html.h"
 #include "src/include/config.h"
 #include "src/include/server.h"
