@@ -1,7 +1,7 @@
-#include "../include/httplib.h"
+#include "include/httplib.h"
 #include <iostream>
-#include "../include/config.h"
-#include "../include/html.h"
+#include "include/config.h"
+#include "include/html.h"
 #include <filesystem>
 #include <locale>
 #include <codecvt>
