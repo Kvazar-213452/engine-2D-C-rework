@@ -79,6 +79,9 @@
         "xtree": "cpp",
         "xutility": "cpp",
         "coroutine": "cpp",
-        "resumable": "cpp"
+        "resumable": "cpp",
+        "complex": "cpp",
+        "windows.h": "c",
+        "lib_download.h": "c"
     }
 }
