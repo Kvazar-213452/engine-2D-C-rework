@@ -1,7 +1,5 @@
 * text=auto
 
-main/lib/webview.h linguist-documentation
-main/lib/webview_mingw_support.h linguist-documentation
-main/lib/httplib.h linguist-documentation
-main/lib/webview.cc linguist-documentation
-main/lib/webview_test.cc linguist-documentation
+main/lib/*.h linguist-documentation
+main/lib/*.cc linguist-documentation
+main/lib/*.i linguist-documentation
