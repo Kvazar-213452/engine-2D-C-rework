@@ -2,13 +2,13 @@
 #include <thread>
 #include <chrono>
 #include <atomic>
-#include "lib/webview.h"
-#include "lib/httplib.h"
-#include "src/include/html.h"
-#include "src/include/config.h"
-#include "src/include/server.h"
 #include <string>
 #include <sstream>
+
+#include "lib/webview.h"
+#include "lib/httplib.h"
+#include "src/include/config.h"
+#include "src/include/server.h"
 
 std::atomic<bool> webview_closed(false);
 
@@ -50,7 +50,7 @@ int WINAPI WinMain(HINSTANCE /*hInst*/, HINSTANCE /*hPrevInst*/,
 #else
 int main() {
     int port = getFreePort();
-    
+
     std::thread server_thread(start_server);
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
