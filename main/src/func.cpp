@@ -2,6 +2,10 @@
 #include <sstream>
 #include <iostream>
 #include <regex>
+#include <iostream>
+#include <Windows.h>
+
+typedef int (*FindFreePortFunc)();
 
 std::string read_file_html(const std::string& filename) {
     std::ifstream file(filename);
@@ -38,4 +42,26 @@ std::string read_file_jsaw(const std::string& filename) {
     }
 
     return content;
+}
+
+
+
+int getFreePort() {
+    HMODULE hDll = LoadLibraryA("dynamics_lib/find_free_port.dll");
+    if (hDll == nullptr) {
+        std::cerr << "Could not load DLL" << std::endl;
+        return -1;
+    }
+
+    FindFreePortFunc findFreePort = (FindFreePortFunc)GetProcAddress(hDll, "FindFreePort");
+    if (findFreePort == nullptr) {
+        std::cerr << "Could not locate the function" << std::endl;
+        FreeLibrary(hDll);
+        return -1;
+    }
+    
+    int freePort = findFreePort();
+    FreeLibrary(hDll);
+
+    return freePort; 
 }

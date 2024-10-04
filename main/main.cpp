@@ -49,6 +49,8 @@ int WINAPI WinMain(HINSTANCE /*hInst*/, HINSTANCE /*hPrevInst*/,
 }
 #else
 int main() {
+    int port = getFreePort();
+    
     std::thread server_thread(start_server);
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
