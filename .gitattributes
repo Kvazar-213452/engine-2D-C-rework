@@ -4,5 +4,5 @@ main/lib/*.h linguist-documentation
 main/lib/*.cc linguist-documentation
 main/lib/*.i linguist-documentation
 
-main/front/static/lib/*.js linguist-documentation
-main/front/static/lib/*.css linguist-documentation
+main/front/static/js/*.js linguist-documentation
+main/front/static/css/*.css linguist-documentation
