@@ -1,9 +1,10 @@
 #include "include/config.h"
+#include "include/func.h"
 
 int window_h = 1000;  
 int window_w = 600;
 
-int port = 59093;
+int port = getFreePort();
 
 const char* name_app = "Gestalt";
 

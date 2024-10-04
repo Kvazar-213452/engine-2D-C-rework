@@ -1,10 +1,8 @@
 #include "../lib/httplib.h"
-#include "include/func.h"
+#include "include/config.h"
+#include <string>
 
-void setup_routes(httplib::Server& svr) {
-    std::string html_content = read_file_jsaw("front/main.html");
-    std::string launcher = read_file_jsaw("front/launcher.html");
-
+void setupRoutes(httplib::Server& svr, const std::string& html_content, const std::string& launcher_page) {
     svr.Get("/", [&html_content](const httplib::Request& req, httplib::Response& res) {
         if (html_content.empty()) {
             res.status = 500;
@@ -14,7 +12,7 @@ void setup_routes(httplib::Server& svr) {
         }
     });
 
-    svr.Get("/main", [&launcher](const httplib::Request& req, httplib::Response& res) {
-        res.set_content(launcher, "text/html");
+    svr.Get("/launcher", [&launcher_page](const httplib::Request& req, httplib::Response& res) {
+        res.set_content(launcher_page, "text/html");
     });
 }

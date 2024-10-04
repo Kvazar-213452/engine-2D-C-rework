@@ -1,1 +1,1 @@
-g++ -std=c++17 -O2 -Iinclude -o main.exe main.cpp lib/httplib.cc src/server.cpp src/config.cpp src/html.cpp src/func.cpp -lole32 -lws2_32 -lShlwapi -lversion
+g++ -std=c++17 -o main.exe main.cpp lib/httplib.cc src/server.cpp src/config.cpp src/routes.cpp src/func.cpp -lole32 -lws2_32 -lshlwapi -lversion
