@@ -1,3 +1,5 @@
+#include <fstream>
+#include <sstream>
 #include "../lib/httplib.h"
 #include <iostream>
 #include "include/config.h"
@@ -21,7 +23,7 @@ std::string read_file(const std::string& filename) {
 void start_server() {
     httplib::Server svr;
 
-    std::string html_content = read_file("../end/index.html");
+    std::string html_content = read_file("front/index.html");
 
     svr.Get("/", [&html_content](const httplib::Request& req, httplib::Response& res) {
         if (html_content.empty()) {
