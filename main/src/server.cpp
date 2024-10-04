@@ -2,6 +2,7 @@
 #include "include/config.h"
 #include "include/func.h"
 #include "include/routes.h"
+#include "include/post.h"
 
 void start_server() {
     httplib::Server svr;
@@ -18,6 +19,8 @@ void start_server() {
     setupRoutes(svr, main_page,
     launcher_page
     );
+
+    setup_post(svr);
 
     svr.listen("127.0.0.1", port);
 }
