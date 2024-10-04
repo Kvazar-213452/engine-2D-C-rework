@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Panel with Undo/Redo</title>
-    <script src="lib/jquery-3.6.4.min.js"></script>    
-    <script src="lib/interact.min.js"></script>
-    <script src="lib/codemirror.min.js"></script>
-    <script src="lib/javascript.min.js"></script>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/modal.css">
-    <link rel="stylesheet" href="lib/codemirror.min.css">
-    <link rel="stylesheet" href="css/style_code.css">
+    <script src="/lib_st/jquery-3.6.4.min.js"></script>    
+    <script src="/lib_st/interact.min.js"></script>
+    <script src="/lib_st/codemirror.min.js"></script>
+    <script src="/lib_st/javascript.min.js"></script>
+    <link rel="stylesheet" href="/css_st/index.css">
+    <link rel="stylesheet" href="/css_st/modal.css">
+    <link rel="stylesheet" href="/lib_st/codemirror.min.css">
+    <link rel="stylesheet" href="/css_st/style_code.css">
     <style id="style_ful"></style>
 </head>
 <body>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="inspector">
-        <%- include('add/inspector') %>
+        <% ('front/add/inspector.html') %>
     </div>
 
     <div id="panel"></div>
@@ -70,19 +70,19 @@
         <div id="style_render"></div>
     </div>
 
-    <%- include('add/modal') %>
+    <%- include('front/add/modal.html') %>
 
-    <script src="js/start.js"></script>
-    <script src="js/func.js"></script>
-    <script src="js/panel.js"></script>
-    <script src="js/block.js"></script>
-    <script src="js/keyboard.js"></script>
-    <script src="js/mause.js"></script>
-    <script src="js/instector.js"></script>
-    <script src="js/server/post.js"></script>
-    <script src="js/page/code.js"></script>
-    <script src="js/page/style.js"></script>
-    <script src="js/editor.js"></script>
-    <script src="js/world.js"></script>
+    <script src="/js_st/start.js"></script>
+    <script src="/js_st/func.js"></script>
+    <script src="/js_st/panel.js"></script>
+    <script src="/js_st/block.js"></script>
+    <script src="/js_st/keyboard.js"></script>
+    <script src="/js_st/mause.js"></script>
+    <script src="/js_st/instector.js"></script>
+    <script src="/js_st/server/post.js"></script>
+    <script src="/js_st/page/code.js"></script>
+    <script src="/js_st/page/style.js"></script>
+    <script src="/js_st/editor.js"></script>
+    <script src="/js_st/world.js"></script>
 </body>
 </html>
