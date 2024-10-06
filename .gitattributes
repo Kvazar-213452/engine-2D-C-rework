@@ -9,3 +9,5 @@ core/src/httplib.cc linguist-documentation
 
 front/static/lib/*.js linguist-documentation
 front/static/lib/*.css linguist-documentation
+
+engene_prefab/**.html linguist-documentation
