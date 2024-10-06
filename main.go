@@ -14,6 +14,8 @@ func main() {
 
 	func_.WriteStartArticle(port)
 
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("front/static"))))
+
 	http.HandleFunc("/", main_.Handler)
 
 	go func() {
