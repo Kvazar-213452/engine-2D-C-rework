@@ -1,1 +1,0 @@
-g++ -std=c++17 -o main.exe main.cpp lib/httplib.cc src/server.cpp src/config.cpp src/routes.cpp src/func.cpp src/post.cpp -lole32 -lws2_32 -lshlwapi -lversion
