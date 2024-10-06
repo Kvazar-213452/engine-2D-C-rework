@@ -21,6 +21,7 @@ func main() {
 	http.HandleFunc("/stop", main_.StopProject)
 	http.HandleFunc("/open_file", main_.OpenFile)
 	http.HandleFunc("/start", main_.StartHandler)
+	http.HandleFunc("/compilete_prg", main_.CompiletePrg)
 
 	go func() {
 		fmt.Printf("Server starting at http://localhost:%s\n", strconv.Itoa(port))

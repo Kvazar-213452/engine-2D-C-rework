@@ -3,9 +3,10 @@
 #include <chrono>
 #include <atomic>
 #include "lib/webview.h"
-#include "lib/httplib.h"
-#include "src/include/config.h"
-#include "src/include/server.h"
+#include "include/httplib.h"
+#include "include/html.h"
+#include "include/config.h"
+#include "include/server.h"
 #include <string>
 #include <sstream>
 
@@ -47,7 +48,7 @@ int WINAPI WinMain(HINSTANCE /*hInst*/, HINSTANCE /*hPrevInst*/,
     return 0;
 }
 #else
-int main() {    
+int main() {
     std::thread server_thread(start_server);
     std::this_thread::sleep_for(std::chrono::seconds(1));
 
@@ -59,3 +60,5 @@ int main() {
     return 0;
 }
 #endif
+
+

@@ -3,6 +3,7 @@ package main_
 import (
 	"encoding/json"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -11,13 +12,11 @@ import (
 )
 
 func SaveFileHandler(w http.ResponseWriter, r *http.Request) {
-	// Перевірка методу запиту
 	if r.Method != http.MethodPost {
 		http.Error(w, "Метод не дозволений", http.StatusMethodNotAllowed)
 		return
 	}
 
-	// Читання тіла запиту
 	var receivedData interface{}
 	err := json.NewDecoder(r.Body).Decode(&receivedData)
 	if err != nil {
@@ -25,7 +24,6 @@ func SaveFileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Запис у файл
 	filePath := "out/data.json"
 	jsonData, err := json.MarshalIndent(receivedData, "", "  ")
 	if err != nil {
@@ -33,7 +31,6 @@ func SaveFileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Перевірка наявності каталогу
 	if _, err := os.Stat("out"); os.IsNotExist(err) {
 		err := os.Mkdir("out", 0755)
 		if err != nil {
@@ -48,7 +45,6 @@ func SaveFileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Відповідь на запит
 	fmt.Fprintf(w, "Дані успішно збережено у файлі: %s", filePath)
 }
 
@@ -128,12 +124,12 @@ func StartHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func saveToFile(content string) error {
-	err := os.MkdirAll("end", os.ModePerm)
+	err := os.MkdirAll("engene_prefab/start", os.ModePerm)
 	if err != nil {
 		return err
 	}
 
-	return ioutil.WriteFile("end/index.html", []byte(content), 0644)
+	return ioutil.WriteFile("engene_prefab/start/index.html", []byte(content), 0644)
 }
 
 func runExecutable() error {
@@ -143,4 +139,60 @@ func runExecutable() error {
 		return err
 	}
 	return cmd.Wait()
+}
+
+func CompiletePrg(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Error(w, "Метод не підтримується", http.StatusMethodNotAllowed)
+		return
+	}
+
+	var data RequestData
+	err := json.NewDecoder(r.Body).Decode(&data)
+	if err != nil {
+		http.Error(w, "Невірний запит", http.StatusBadRequest)
+		return
+	}
+
+	outDir := "engene_prefab/comp"
+	err = os.MkdirAll(outDir, os.ModePerm)
+	if err != nil {
+		http.Error(w, "Не вдалося створити папку", http.StatusInternalServerError)
+		return
+	}
+
+	sourceFile := "engene_prefab/start/main.exe"
+	destinationFile := filepath.Join(outDir, "main.exe")
+
+	err = copyFile(sourceFile, destinationFile)
+	if err != nil {
+		http.Error(w, "Не вдалося скопіювати файл", http.StatusInternalServerError)
+		return
+	}
+
+	htmlFile := filepath.Join(outDir, "index.html")
+	err = os.WriteFile(htmlFile, []byte(data.TetxY), 0644)
+	if err != nil {
+		http.Error(w, "Не вдалося створити файл index.html", http.StatusInternalServerError)
+		return
+	}
+
+	w.Write([]byte("Файл index.html успішно створений!"))
+}
+
+func copyFile(src, dst string) error {
+	source, err := os.Open(src)
+	if err != nil {
+		return err
+	}
+	defer source.Close()
+
+	destination, err := os.Create(dst)
+	if err != nil {
+		return err
+	}
+	defer destination.Close()
+
+	_, err = io.Copy(destination, source)
+	return err
 }

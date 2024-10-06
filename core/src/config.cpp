@@ -1,14 +1,12 @@
-#include "include/config.h"
-#include "include/func.h"
+#include <string>
 
 int window_h = 1000;  
 int window_w = 600;
 
-int port = getFreePort();
+int port = 59093;
 
-const char* name_app = "Gestalt";
+const char* name_app = "Article installer";
 
-std::string html_content_core = R"(
-<style>iframe{position: fixed;height: 100%;width: 100%;top: 0%;left: 0%;}</style><iframe src="http://127.0.0.1:)"
-+ std::to_string(port) + R"("/" frameborder="0"></iframe>
-)";
+
+std::string url_zip = "http://fi4.bot-hosting.net:22923/zip/main.zip";
+std::wstring shortcut_name = L"Article installer";   
