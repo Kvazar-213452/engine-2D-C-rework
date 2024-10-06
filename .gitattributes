@@ -10,4 +10,5 @@ core/src/httplib.cc linguist-documentation
 front/static/lib/*.js linguist-documentation
 front/static/lib/*.css linguist-documentation
 
-engene_prefab/**.html linguist-documentation
+engene_prefab/comp/**.html linguist-documentation
+engene_prefab/start/**.html linguist-documentation
