@@ -7,8 +7,8 @@ import (
 
 func Handler(w http.ResponseWriter, r *http.Request) {
 	tmpl, err := template.ParseFiles(
-		"front/add/engene/modal.html",
-		"front/add/engene/inspector.html",
+		"front/add/engene/modal.pug",
+		"front/add/engene/inspector.pug",
 		"front/index.pug",
 	)
 	if err != nil {

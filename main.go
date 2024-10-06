@@ -16,7 +16,11 @@ func main() {
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("front/static"))))
 
+	http.HandleFunc("/save_file", main_.SaveFileHandler)
 	http.HandleFunc("/", main_.Handler)
+	http.HandleFunc("/stop", main_.StopProject)
+	http.HandleFunc("/open_file", main_.OpenFile)
+	http.HandleFunc("/start", main_.StartHandler)
 
 	go func() {
 		fmt.Printf("Server starting at http://localhost:%s\n", strconv.Itoa(port))
