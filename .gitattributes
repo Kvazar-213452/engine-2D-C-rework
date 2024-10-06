@@ -4,5 +4,8 @@ core/lib/*.h linguist-documentation
 core/lib/*.cc linguist-documentation
 core/lib/*.i linguist-documentation
 
+core/include/httplib.h linguist-documentation
+core/src/httplib.cc linguist-documentation
+
 front/static/lib/*.js linguist-documentation
 front/static/lib/*.css linguist-documentation
