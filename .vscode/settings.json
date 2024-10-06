@@ -82,6 +82,7 @@
         "resumable": "cpp",
         "complex": "cpp",
         "windows.h": "c",
-        "lib_download.h": "c"
+        "lib_download.h": "c",
+        "hlc.h": "c"
     }
 }
